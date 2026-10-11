@@ -1,0 +1,21 @@
+---
+title: Wie funktioniert die API-Authentifizierung?
+description: Kurzanleitung zur Authentifizierung bei CebiCon APIs.
+---
+
+## Schnellstart
+
+Jede API-Anfrage benötigt einen gültigen API-Token.
+
+## Token abrufen
+
+1. Im CebiCon Dashboard einloggen
+2. Menüpunkt **API-Keys** aufrufen
+3. "Neuen API-Key erstellen" klicken
+4. Key sicher speichern
+
+## Nutzung in Anfragen
+
+```bash
+curl -H "Authorization: Bearer IHR_API_KEY" https://api.cebicon.de/v1/kunden
+```

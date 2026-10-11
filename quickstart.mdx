@@ -1,0 +1,140 @@
+---
+title: Quickstart
+description: Get started with OmniTruss by setting up your account and completing initial configuration steps quickly.
+---
+
+## Prerequisites
+
+Before you begin, ensure you have the following:
+
+<Callout kind="info">
+
+- A valid email address for account registration
+- Browser support: Latest versions of Chrome, Firefox, or Safari
+- Admin access for tenant configuration (if setting up for a team)
+
+</Callout>
+
+## Create Account and Log In
+
+Follow these steps to create your OmniTruss account and access the dashboard.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Visit `https://app.omnitruss.de/signup` and enter your email, password, and company details.
+    
+    Agree to the terms and click **Create Account**.
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your inbox for a verification email from OmniTruss.
+    
+    Click the verification link to activate your account.
+  </Step>
+  <Step title="Log In" icon="log-in">
+    Return to `https://app.omnitruss.de/login`.
+    
+    Enter your credentials and click **Sign In**.
+  </Step>
+</Steps>
+
+## Dashboard Overview
+
+Once logged in, you land on the OmniTruss dashboard. It provides quick access to key features like tenant management, self-service portals, and automation tools.
+
+<Columns cols={3}>
+  <Card title="Tenants" icon="building" href="/configuration">
+    Manage multi-tenant setups for your system house clients.
+  </Card>
+  <Card title="Self-Service" icon="help-circle" href="/guides">
+    Create portals where customers handle requests independently.
+  </Card>
+  <Card title="Automation" icon="zap" href="/automation">
+    Set up workflows for tickets, updates, and integrations.
+  </Card>
+</Columns>
+
+## Initial Tenant Setup
+
+Tenants enable multi-client support. Configure your first tenant now.
+
+<Tabs>
+  <Tab title="Primary Tenant" icon="home">
+    <Steps>
+      <Step title="Navigate to Tenants" icon="list">
+        Click **Tenants** in the sidebar.
+      </Step>
+      <Step title="Add Tenant" icon="plus">
+        Click **New Tenant** and fill in:
+        
+        - Name: `My First Tenant`
+        - Domain: `tenant1.example.com`
+        
+        Save changes.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="API Setup" icon="code">
+    Generate an API key for integrations.
+    
+    ```bash
+    curl -X POST https://api.example.com/v1/tenants/YOUR_TENANT_ID/api-keys \
+      -H "Authorization: Bearer YOUR_API_KEY" \
+      -H "Content-Type: application/json" \
+      -d '{"name": "Dashboard Integration"}'
+    ```
+  </Tab>
+</Tabs>
+
+## Create Your First Self-Service Portal
+
+Self-service portals let customers access docs, submit requests, and use apps without support tickets.
+
+<Steps>
+  <Step title="Select Portal Template" icon="layout">
+    Go to **Self-Service** > **New Portal**.
+    
+    Choose **Customer Documentation** template.
+  </Step>
+  <Step title="Customize Content" icon="edit-3">
+    Add your branding:
+    
+    <CodeGroup tabs="JSON,CLI">
+    ````json
+    {
+      "title": "Customer Portal",
+      "logo": "https://your-logo.com/logo.png",
+      "color": "#ed6c1a"
+    }
+    ````
+    ````bash
+    omnitruss portal create --template docs --title "Customer Portal" --color "#ed6c1a"
+    ````
+    </CodeGroup>
+  </Step>
+  <Step title="Publish" icon="globe">
+    Preview, then click **Publish**.
+    
+    Share the URL: `https://portal.example.com/tenant1`.
+  </Step>
+</Steps>
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+  - **Login fails?** Clear browser cache or try incognito mode.
+  - **Tenant not visible?** Refresh the dashboard or check permissions.
+  - **Portal customization errors?** Validate JSON config with a linter.
+</Expandable>
+
+## Next Steps
+
+<Columns cols={2}>
+  <Card title="Authentication" icon="shield" href="/authentication" horizontal>
+    Secure your tenants with advanced auth options.
+  </Card>
+  <Card title="Full Guides" icon="book-open" href="/guides" horizontal>
+    Dive into automation and app integrations.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Customize these steps to fit your workflow. Explore the dashboard to discover more features.
+</Callout>

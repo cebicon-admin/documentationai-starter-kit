@@ -1,0 +1,157 @@
+---
+title: Changelog
+description: Version history with the 2-3 most recent updates, new features, and changes.
+---
+
+## Recent Updates
+
+<Update label="2024-11-15" description="v1.3.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added self-service portal for end-users with customizable dashboards.
+- Introduced automation workflows for customer documentation generation.
+
+## Improvements
+
+- Enhanced multi-tenant isolation with improved data partitioning.
+- Optimized API response times by `>30%` for high-traffic scenarios.
+
+## Bug Fixes
+
+- Fixed intermittent authentication failures during peak hours.
+- Resolved configuration sync issues across distributed nodes.
+
+</Update>
+
+<Update label="2024-10-20" description="v1.2.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Integrated app marketplace for third-party extensions.
+- Added real-time notifications for system administrators.
+
+## Bug Fixes
+
+- Corrected self-service ticket routing logic.
+- Patched security vulnerability in webhook endpoints (CVE-2024-XXXX).
+
+</Update>
+
+<Update label="2024-09-10" description="v1.1.0" tags={["breaking", "feature"]}>
+
+## Breaking Changes
+
+- Updated API authentication to require JWT tokens instead of API keys.
+
+## New Features
+
+- Launched customer documentation builder with template support.
+- Enabled basic automation scripts for routine tasks.
+
+## Improvements
+
+- Improved dashboard UI with responsive design for mobile devices.
+
+</Update>
+
+## Upcoming Changes
+
+<Board title="Q4 2024 Roadmap">
+  <BoardColumn title="Planned" color="0" icon="calendar">
+    <BoardCard
+      title="Advanced Analytics"
+      description="Add usage metrics and reporting dashboards"
+      icon="bar-chart-3"
+      dueDate="2024-12-15"
+    />
+    <BoardCard
+      title="AI-Powered Automation"
+      description="Integrate ML models for predictive maintenance"
+      icon="brain"
+    />
+  </BoardColumn>
+  <BoardColumn title="In Progress" color="1" icon="loader-2">
+    <BoardCard
+      title="Multi-Language Support"
+      description="Add German, English, and French localization"
+      icon="globe"
+      author="Dev Team"
+    />
+  </BoardColumn>
+  <BoardColumn title="Completed" color="2" icon="check-circle">
+    <BoardCard
+      title="Webhook v2"
+      description="Enhanced event payloads and retry logic"
+      createdAt="2024-11-01"
+    />
+  </BoardColumn>
+</Board>
+
+<Callout kind="info">
+  Check the [GitHub repository](https://github.com/example/omnitruss-dev) for full commit history and contribution guidelines.
+</Callout>
+
+## Upgrade Instructions
+
+Follow these steps to upgrade your omnitruss-dev instance to the latest version.
+
+<Steps>
+  <Step title="Backup Your Data" icon="database">
+    Create a full backup of your configuration and database.
+
+````bash
+pg_dump -U user omnitruss_db > backup_$(date +%Y%m%d).sql
+````
+
+  </Step>
+  <Step title="Update Package" icon="package">
+    Install the latest version using your package manager.
+
+    <CodeGroup tabs="npm,yarn">
+````bash
+npm install omnitruss-dev@latest
+````
+````bash
+yarn add omnitruss-dev@latest
+````
+    </CodeGroup>
+  </Step>
+  <Step title="Run Migrations" icon="git-branch">
+    Apply database migrations.
+
+````bash
+npx omnitruss-dev migrate
+````
+  </Step>
+  <Step title="Restart Service" icon="refresh-cw">
+    Restart the service and verify endpoints.
+
+    Test the API:
+
+````bash
+curl -H "Authorization: Bearer YOUR_TOKEN" https://api.example.com/v1/health
+````
+  </Step>
+</Steps>
+
+## Next Steps
+
+<Columns cols={2}>
+  <Card title="Quickstart" icon="book-open" href="/quickstart">
+    Get started with omnitruss-dev in minutes.
+  </Card>
+  <Card title="API Reference" icon="code" href="/api-reference">
+    Explore all available endpoints and parameters.
+  </Card>
+  <Card title="Authentication" icon="shield" href="/authentication">
+    Secure your integration properly.
+  </Card>
+  <Card title="Configuration" icon="settings" href="/configuration">
+    Customize settings for your environment.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  This changelog focuses on the most recent updates. Customize these notes to reflect your actual release history.
+</Callout>
